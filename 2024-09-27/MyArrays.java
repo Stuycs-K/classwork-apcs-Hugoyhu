@@ -41,7 +41,13 @@ public class MyArrays {
 
 
     // test concatArray
-    
+    int[] testArray1 = new int[] {1, 2, 3, 4, 5};
+    int[] testArray2 = new int[] {-1, -3, 0, 5};
+
+    System.out.println(
+      "Expected: " + arrayToString(new int[] {1, 2, 3, 4, 5, -1, -3, 0, 5}) +
+      "\nRun: " + arrayToString(concatArray(testArray1, testArray2))
+    );
 
   }
 
