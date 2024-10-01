@@ -24,7 +24,7 @@ public class ArrayMethods {
         s += arrToString(ary[0]);
       }
       if (ary.length > 1){
-        for (int i = 0; i < ary.length; i++){
+        for (int i = 1; i < ary.length; i++){
           s += ", " + arrToString(ary[i]);
         }
       }
@@ -34,13 +34,24 @@ public class ArrayMethods {
   public static int arr2DSum(int[][] ary) {
     int out = 0;
     for (int i = 0; i < ary.length; i++) {
-      System.out.println(ary[i].length);
-      for (int j = 0; i < ary[i].length; j++) {
+      for (int j = 0; j < ary[i].length; j++) {
         out += ary[i][j];
       }
     }
 
     return out;
+  }
+
+  public static int[][] swapRC (int[][] ary) {
+    int[][] newArray = new int[ary[0].length][ary.length];
+
+    for (int layerOne = 0; layerOne < ary.length; layerOne++) {
+      for (int layerTwo = 0; layerTwo < ary[layerOne].length; layerTwo++){
+        newArray[layerTwo][layerOne] = ary[layerOne][layerTwo];
+      }
+      
+    }
+    return newArray;
   }
 
   public static void main (String[] args) {
@@ -85,6 +96,26 @@ public class ArrayMethods {
       {},
       {}
     }));
+
+
+    // test swapRC int[][]
+    System.out.println(arrToString(swapRC(new int[][] {
+      {2, 3, 4},
+      {5, 6, 7},
+      {2, 4, 0}
+    })));
+
+    System.out.println(arrToString(swapRC(new int[][] {
+      {2, 3, 4, 3, 5},
+      {5, 6, 7, 2, 2},
+      {2, 4, 0, -5, 0}
+    })));
+
+    System.out.println(arrToString(swapRC(new int[][] {
+      {1},
+      {1},
+      {1}
+    })));
 
 
   }
