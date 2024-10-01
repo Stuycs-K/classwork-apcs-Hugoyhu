@@ -49,9 +49,23 @@ public class ArrayMethods {
       for (int layerTwo = 0; layerTwo < ary[layerOne].length; layerTwo++){
         newArray[layerTwo][layerOne] = ary[layerOne][layerTwo];
       }
-      
+
     }
     return newArray;
+  }
+
+  public static void replaceNegative(int[][] vals) {
+    for (int i = 0; i < vals.length; i++) {
+      for (int j = 0; j < vals[i].length; j++) {
+        if (vals[i][j] < 0) {
+          if (i == j) {
+            vals[i][j] = 1;
+          } else {
+            vals[i][j] = 0;
+          }
+        }
+      }
+    }
   }
 
   public static void main (String[] args) {
@@ -117,6 +131,26 @@ public class ArrayMethods {
       {1}
     })));
 
+    // test replaceNegative int[][]
+    int[][] testArray2D = new int[][] {
+      {2, 3, -4},
+      {-5, -9, -7},
+      {2, 4, 0}
+    };
+
+    replaceNegative(testArray2D);
+
+    System.out.println(arrToString(testArray2D));
+
+    testArray2D = new int[][] {
+      {0, 3, -4},
+      {8, -9, -9, -7},
+      {}
+    };
+
+    replaceNegative(testArray2D);
+
+    System.out.println(arrToString(testArray2D));
 
   }
 }
