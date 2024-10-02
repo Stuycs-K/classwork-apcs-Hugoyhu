@@ -68,12 +68,34 @@ public class ArrayMethods {
     }
   }
 
+  public static int[] copy(int[] nums) {
+    int[] newArray = new int[nums.length];
+    for (int i = 0; i < nums.length; i++) {
+      newArray[i] = nums[i];
+    } 
+
+    return newArray;
+  }
+
+  public static int[][] copy(int[][] nums){
+    int[][] newArray = new int[nums.length][];
+    for (int i = 0; i < nums.length; i++) {
+      newArray[i] = copy(nums[i]);
+    }
+
+    return newArray;
+  }
+
   public static void main (String[] args) {
     // test arrayToString int[]
+    System.out.println("\nTesting arrayToString int[]");
+
     System.out.println(arrToString(new int[] {2, 3, 4, 9}));
 
 
     // test arrToString int[][]
+    System.out.println("\nTesting arrayToString int[][]");
+
     System.out.println(arrToString(new int[][] {
       {2, 3, 4},
       {5, 6, 7},
@@ -93,6 +115,7 @@ public class ArrayMethods {
     }));
 
     // test arr2DSum int[][]
+    System.out.println("\nTesting arr2DSum");
     System.out.println(arr2DSum(new int[][] {
       {2, 3, 4},
       {5, 6, 7},
@@ -113,6 +136,7 @@ public class ArrayMethods {
 
 
     // test swapRC int[][]
+    System.out.println("\nTesting swapRC");
     System.out.println(arrToString(swapRC(new int[][] {
       {2, 3, 4},
       {5, 6, 7},
@@ -132,6 +156,7 @@ public class ArrayMethods {
     })));
 
     // test replaceNegative int[][]
+    System.out.println("\nTesting replaceNegative");
     int[][] testArray2D = new int[][] {
       {2, 3, -4},
       {-5, -9, -7},
@@ -151,6 +176,50 @@ public class ArrayMethods {
     replaceNegative(testArray2D);
 
     System.out.println(arrToString(testArray2D));
+
+
+    // test copy
+    System.out.println("\nTesting copy");
+    int[][] original2DArray = new int[][] {
+      {0, 3, -4},
+      {8, -9, -9, -7},
+      {}
+    };
+
+    int[][] new2DArray;
+
+    new2DArray = copy(original2DArray);
+
+    System.out.println("New:           " + arrToString(new2DArray));
+
+    original2DArray = new int[][] {
+      {0},
+      {8, 8, -1},
+      {-1,-1}
+    };
+
+    System.out.println("Orig. Changed: " + arrToString(new2DArray));
+
+
+
+    original2DArray = new int[][] {
+      {},
+      {},
+      {}
+    };
+
+    new2DArray = copy(original2DArray);
+
+    System.out.println("New:           " + arrToString(new2DArray));
+
+    original2DArray = new int[][] {
+      {0},
+      {8, 8, -1},
+      {-1,-1}
+    };
+
+    System.out.println("Orig. Changed: " + arrToString(new2DArray));
+
 
   }
 }
