@@ -13,7 +13,7 @@ public class ArrayDemo{
       {}
     };
     System.out.println(
-      "Check arrToString: " + (arrToString(test2DArray) == Arrays.toString(test2DArray))
+      "Check arrToString: " + (arrToString(test2DArray) == Arrays.deepToString(test2DArray))
     );
     System.out.println(
       "Expected: 0. Output: " + countZeros2D(test2DArray)
@@ -26,7 +26,7 @@ public class ArrayDemo{
       {2}
     };
     System.out.println(
-      "Check arrToString: " + (arrToString(test2DArray) == Arrays.toString(test2DArray))
+      "Check arrToString: " + (arrToString(test2DArray) == Arrays.deepToString(test2DArray))
     );
     System.out.println(
       "Expected: 3. Output: " + countZeros2D(test2DArray)
@@ -35,11 +35,24 @@ public class ArrayDemo{
 
     test2DArray = new int[][]{{1,2},{3}};
     System.out.println(
-      "Check arrToString: " + (arrToString(test2DArray) == Arrays.toString(test2DArray))
+      "Check arrToString: " + (arrToString(test2DArray) == Arrays.deepToString(test2DArray))
     );
 
     System.out.println(
       "Expected: <table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>\n" +
+      "Received: " + htmlTable(test2DArray)
+    );
+
+    test2DArray = new int[][]{
+      {},
+      {3, 5, 0, -5}
+    };
+    System.out.println(
+      "Check arrToString: " + (arrToString(test2DArray) == Arrays.deepToString(test2DArray))
+    );
+
+    System.out.println(
+      "Expected: <table><tr></tr><tr><td>3</td><td>5</td><td>0</td><td>-5</td></tr></table>\n" +
       "Received: " + htmlTable(test2DArray)
     );
 
