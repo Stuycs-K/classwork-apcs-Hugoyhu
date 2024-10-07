@@ -6,6 +6,43 @@ public class ArrayDemo{
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
 
+    int[][] test2DArray = new int[][] {
+      {},
+      {},
+      {},
+      {}
+    };
+    System.out.println(
+      "Check arrToString: " + (arrToString(test2DArray) == Arrays.toString(test2DArray))
+    );
+    System.out.println(
+      "Expected: 0. Output: " + countZeros2D(test2DArray)
+    );
+
+    test2DArray = new int[][] {
+      {0, 12, 4, -3, -344, 100, 0},
+      {},
+      {0},
+      {2}
+    };
+    System.out.println(
+      "Check arrToString: " + (arrToString(test2DArray) == Arrays.toString(test2DArray))
+    );
+    System.out.println(
+      "Expected: 3. Output: " + countZeros2D(test2DArray)
+    );
+
+
+    test2DArray = new int[][]{{1,2},{3}};
+    System.out.println(
+      "Check arrToString: " + (arrToString(test2DArray) == Arrays.toString(test2DArray))
+    );
+
+    System.out.println(
+      "Expected: <table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>\n" +
+      "Received: " + htmlTable(test2DArray)
+    );
+
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -94,6 +131,15 @@ public class ArrayDemo{
   //DO NOT use any built in methods that "copy" an array.
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
+  public static int[] copy(int[] nums) {
+    int[] newArray = new int[nums.length];
+    for (int i = 0; i < nums.length; i++) {
+      newArray[i] = nums[i];
+    }
+
+    return newArray;
+  }
+
   public static int[][] copy(int[][] nums){
     int[][] newArray = new int[nums.length][];
     for (int i = 0; i < nums.length; i++) {
@@ -125,6 +171,16 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String outputHTML = "<table>";
+
+    for (int i = 0; i < nums.length; i++) {
+      outputHTML += "<tr>";
+      for (int j = 0; j < nums[i].length; j++) {
+        outputHTML += "<td>" + nums[i][j] + "</td>";
+      }
+      outputHTML += "</tr>";
+    }
+    outputHTML += "</table>";
+    return outputHTML;
   }
 }
