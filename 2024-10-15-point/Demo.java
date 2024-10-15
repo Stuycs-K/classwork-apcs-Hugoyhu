@@ -19,5 +19,13 @@ public class Demo{
     System.out.println( distance(p1,p2));
     System.out.println( Point.distance(p1,p2));
     System.out.println( p1.distanceTo(p2));
+    System.out.println( "Expected: 3.605551275463989, Received: " + distance(p1, p3));
+    System.out.println( "Expected: 6.4031242374328485, Received: " + distance(p2, p3));
+
+    Point t1 = new Point(0, 0);
+    Point t2 = new Point(1, 0);
+    Point t3 = new Point(0.5, 0.5 * Math.sqrt(3));
+
+    System.out.println("Expected distances: 1: " + distance(t1, t2) + ", " + distance(t2, t3) + ", " + distance(t1, t3));
   }
 }
