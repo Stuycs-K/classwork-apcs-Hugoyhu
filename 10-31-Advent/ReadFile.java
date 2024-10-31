@@ -11,8 +11,22 @@ public class ReadFile {
       File file = new File(args[0]);//1
       Scanner input = new Scanner(file);
 
-      Main.printEachLine(input);
-      
+      //Main.printEachLine(input);
+
+      while (input.hasNextLine()) {
+        String line = input.nextLine();
+        boolean found = false;
+        for (int i = 0; i < line.length(); i++) {
+          if (line.charAt(i) == '{')  {
+            found = true;
+          }
+        }
+
+        if (found) {
+          System.out.println(line);
+        }
+      }
+
       input.close();//releases the file from your program
 
     } catch (FileNotFoundException ex) {
