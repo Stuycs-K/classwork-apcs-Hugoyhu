@@ -66,7 +66,7 @@ public class TriangleTester {
                 List<Integer> c3 = new ArrayList<Integer>(3);
 
                 for (int j = 0; j<3; j++) {
-                    String line = input.nextLine();
+                    String line= input.nextLine();
                     Scanner lineInput = new Scanner(line);
 
                     c1.add(lineInput.nextInt());
@@ -110,7 +110,7 @@ public class TriangleTester {
     }
 
     public static void main(String[] args) {
-        //System.out.println(countTrianglesA("inputTri.txt"));
+        System.out.println(countTrianglesA("inputTri.txt"));
         System.out.println(countTrianglesB("inputTri.txt"));
     }
 }
