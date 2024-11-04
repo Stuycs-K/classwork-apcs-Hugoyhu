@@ -27,12 +27,11 @@ public class ReadFile {
         }
       }
 
-      input.close();//releases the file from your program
+      input.close();
 
     } catch (FileNotFoundException ex) {
-      //File not found what should you do?
       System.out.println("File not found");
-      return; //you can return from a void function just don't put a value.
+      return;
     }
   }
 }
