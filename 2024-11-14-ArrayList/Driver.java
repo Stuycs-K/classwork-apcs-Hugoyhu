@@ -9,12 +9,19 @@ public class Driver {
     System.out.println(a1);
     ArrayListPractice.replaceEmpty(a1);
     System.out.println(a1);
+    System.out.println(ArrayListPractice.makeReversedList(a1));
+
     System.out.println(a2);
     ArrayListPractice.replaceEmpty(a2);
     System.out.println(a2);
+    System.out.println(ArrayListPractice.makeReversedList(a2));
+
     System.out.println(a3);
     ArrayListPractice.replaceEmpty(a3);
     System.out.println(a3);
+    System.out.println(ArrayListPractice.makeReversedList(a3));
+
+
 
   }
 }
