@@ -34,4 +34,27 @@ public class ArrayListPractice {
     return ans;
   }
 
+  public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
+    int minSize = Math.min(a.size(), b.size());
+    ArrayList<String> newList = new ArrayList<String>(a.size() + b.size());
+
+    for (int i = 0; i < minSize; i++) {
+      newList.add(a.get(i));
+      newList.add(b.get(i));
+    }
+
+    if (a.size() > b.size()) {
+      for (int i = b.size(); i < a.size(); i++) {
+        newList.add(a.get(i));
+      } 
+    } else if (a.size() < b.size()) {
+      for (int i = a.size(); i < b.size(); i++) {
+        newList.add(b.get(i));
+      }
+    }
+
+    return newList;
+  } 
+  
+
 }
