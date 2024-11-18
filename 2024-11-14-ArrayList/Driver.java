@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Driver {
   public static void main (String[] args) {
@@ -21,7 +22,10 @@ public class Driver {
     System.out.println(a3);
     System.out.println(ArrayListPractice.makeReversedList(a3));
 
+    ArrayList<String> t1 = new ArrayList<String>(Arrays.asList("1","3","5"));
+    ArrayList<String> t2 = new ArrayList<String>(Arrays.asList("2","4","6","8","10"));
 
+    System.out.println(ArrayListPractice.mixLists(t1, t2));
 
   }
 }
