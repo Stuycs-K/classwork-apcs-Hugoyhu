@@ -31,6 +31,11 @@ public class Solver {
                     encrypted += staging2[j];
                 }
 
+                System.out.println(staging1[0]);
+                System.out.println(sectorID);
+                System.out.println(checksum);
+                System.out.println(encrypted);
+
                 ArrayList<Integer> values = new ArrayList<Integer>(1); 
 
                 for (int c = 0; c < checksum.length(); c++) {
@@ -47,13 +52,15 @@ public class Solver {
 
                 boolean status = true;
                 for (int c = 1; c < values.size(); c++) {
-                    if (values.get(c-1) < values.get(c)) {
-                        status =false;
-                        break;
-                    } else if ((values.get(c-1) == values.get(c)) && (checksum.charAt(c-1) > checksum.charAt(c)) ) {
+                    if ((values.get(c-1) == values.get(c)) && (checksum.charAt(c-1) >= checksum.charAt(c)) ) {
                         status = false;
                         break;
                     }
+                    if (values.get(c-1) < values.get(c)) {
+                        status =false;
+                        break;
+                    }
+                
                 }
 
                 if (status){
