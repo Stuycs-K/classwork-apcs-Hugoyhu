@@ -24,7 +24,7 @@ public class Solver {
           // left: add 1 to dir.
           dir = (dir + 1) % 4;
         } else {
-          dir = (dir + 3) % 4;
+          dir = (dir - 1) % 4;
         }
 
         String remain = current.substring(1);

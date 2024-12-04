@@ -33,7 +33,7 @@ public class ColorDemo {
         "  .  ",
         "  .  ",
         "  .  ",
-        "..."};
+        " ... "};
     
     public static final String[] two = {
         " ... ",
@@ -96,7 +96,7 @@ public class ColorDemo {
         " ... ",
         ".   .",
         ".   .",
-        " ... ",;
+        " ... "};
 
     public static final String[] nine = {
         " ... ",
@@ -155,18 +155,63 @@ public class ColorDemo {
     }
 
     public static void writeDigit (String[] lines, int dotColor, int spaceColor, int digit) {
-        String[] d = mapper(digit);
+        String[] d = mapper[digit];
         for (int line = 0; line < lines.length; line++) {
             String dLine = d[line];
             for (int i = 0; i < dLine.length(); i++) {
                 // each pixel:
                 char current = dLine.charAt(i);
-                if (current = '.') {
-                    lines[line] += OutputString(" ", 0, false, dotColor, false);
+                if (current == '.') {
+                    lines[line] += escape + OutputString(0, false, dotColor, false) + "m ";
                 } else {
-                    lines[line] += OutputString(" ", 0, false, spaceColor, false);
+                    lines[line] += escape + OutputString(0, false, spaceColor, false) + "m ";
                 }
+                lines[line] += "\u001b[0m";
             }
+        }
+    }
+
+    public static void padSpace (String[] lines, String padding) {
+        for (int line = 0; line < lines.length; line++) {
+            lines[line] += padding;
+        }
+    }
+
+    public static void writeTime (int hourDot, int hourSpace, int minuteDot, int minuteSpace) {
+        LocalTime now = LocalTime.now();
+        int hour = now.getHour();
+        int minute = now.getMinute();
+
+
+        int hourd0 = hour / 10;
+        int hourd1 = hour % 10;
+
+        int mind0 = minute / 10;
+        int mind1 = minute % 10;
+
+        String[] writeOut = {
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        };
+
+        String padStr = escape + OutputString(0, false, ColorDemo.BLACK, false) + "m ";
+        writeDigit(writeOut, hourDot, hourSpace, hourd0);
+        padSpace(writeOut, padStr);
+        writeDigit(writeOut, hourDot, hourSpace, hourd1);
+        padSpace(writeOut, padStr);
+        writeDigit(writeOut, minuteDot, minuteSpace, mind0);
+        padSpace(writeOut, padStr);
+        writeDigit(writeOut, minuteDot, minuteSpace, mind1);
+        
+        
+
+        for (int i = 0; i < writeOut.length; i++) {
+            System.out.println(writeOut[i]);
         }
     }
 
@@ -182,8 +227,8 @@ public class ColorDemo {
 
 
     public static void main (String[] args) {
-        
 
+        writeTime(ColorDemo.GREEN, ColorDemo.BLACK, ColorDemo.RED, ColorDemo.BLACK);
 
 
 
