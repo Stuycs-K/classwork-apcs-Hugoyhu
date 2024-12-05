@@ -34,7 +34,7 @@ public class ColorDemo {
         "  .  ",
         "  .  ",
         " ... "};
-    
+
     public static final String[] two = {
         " ... ",
         ".   .",
@@ -43,7 +43,7 @@ public class ColorDemo {
         "  .  ",
         " .   ",
         "....."};
-    
+
     public static final String[] three = {
         " ... ",
         ".   .",
@@ -61,7 +61,7 @@ public class ColorDemo {
         ".....",
         "   . ",
         "   . "};
-    
+
     public static final String[] five = {
         ".....",
         ".    ",
@@ -70,7 +70,7 @@ public class ColorDemo {
         "    .",
         "    .",
         ".... "};
-    
+
     public static final String[] six = {
         " ... ",
         ".   .",
@@ -181,6 +181,7 @@ public class ColorDemo {
         LocalTime now = LocalTime.now();
         int hour = now.getHour();
         int minute = now.getMinute();
+        int second = now.getSecond();
 
 
         int hourd0 = hour / 10;
@@ -188,6 +189,9 @@ public class ColorDemo {
 
         int mind0 = minute / 10;
         int mind1 = minute % 10;
+
+        int secd0 = second / 10;
+        int secd1 = second % 10;
 
         String[] writeOut = {
             "",
@@ -199,7 +203,7 @@ public class ColorDemo {
             ""
         };
 
-        String padStr = escape + OutputString(0, false, ColorDemo.BLACK, false) + "m ";
+        String padStr = escape + OutputString(0, false, ColorDemo.BLACK, false) + "m  ";
         writeDigit(writeOut, hourDot, hourSpace, hourd0);
         padSpace(writeOut, padStr);
         writeDigit(writeOut, hourDot, hourSpace, hourd1);
@@ -207,8 +211,12 @@ public class ColorDemo {
         writeDigit(writeOut, minuteDot, minuteSpace, mind0);
         padSpace(writeOut, padStr);
         writeDigit(writeOut, minuteDot, minuteSpace, mind1);
-        
-        
+        padSpace(writeOut, padStr);
+        writeDigit(writeOut, hourDot, hourSpace, secd0);
+        padSpace(writeOut, padStr);
+        writeDigit(writeOut, hourDot, hourSpace, secd1);
+
+
 
         for (int i = 0; i < writeOut.length; i++) {
             System.out.println(writeOut[i]);
