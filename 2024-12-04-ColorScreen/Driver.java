@@ -39,7 +39,7 @@ public class Driver {
             System.out.print(" ");
         }
 
-        System.out.print(Text.RESET);
+        System.out.println(Text.RESET);
 
     }
 
@@ -59,25 +59,52 @@ public class Driver {
         int n1 = args[1];
         int n2 = args[2];
 
-        Text.go(1, 18);
+        Text.go(2, 18);
+        printCompare(n0);
         System.out.print(n0);
 
-        Text.go(1, 38);
+        Text.go(2, 38);
+        printCompare(n1);
         System.out.print(n1);
 
-        Text.go(1, 58);
+        Text.go(2, 58);
+        printCompare(n2);
         System.out.print(n2);
 
-        System.out.print(Text.RESET);
+        System.out.println(Text.RESET);
 
+    }
+
+    public static void printCompare(int x) {
+        // check < 25, > 75
+        if (x < 25) {
+            Text.color(Text.RED, Text.BRIGHT);
+        } else if (x > 75) {
+            Text.color(Text.GREEN, Text.BRIGHT);
+        } else {
+            Text.color(Text.WHITE);
+        }
+    }
+
+    public static void drawLine () {
+        Text.go(3, 2);
+        
+        for (int i = 2; i < 80; i++) {
+            System.out.print("-");
+        }
+
+        System.out.println(Text.RESET);
     }
 
     public static void main(String[] args) {
 
+        
         int[] out3 = random3();
         // System.out.println(test[0] + " " + test[1] + " " + test[2]);
         print3(out3);
+        drawLine();
+        drawBorder(Text.CYAN);
 
-        //drawBorder(Text.CYAN);
+        Text.go(31, 1);
     }
 }
