@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Driver {
     public static void drawBorder(int color) {
         // 80 x 30
@@ -28,7 +30,21 @@ public class Driver {
 
     }
 
+    public static int[] random3 () {
+        Random rng = new Random();
+        int[] l = new int[3];
+
+        for (int i = 0; i < 3; i++) {
+            l[i] = rng.nextInt(100);
+        }
+
+        return l;
+    }
+
     public static void main(String[] args) {
         drawBorder(Text.CYAN);
+
+        int[] test = random3();
+        System.out.println(test[0] + " " + test[1] + " " + test[2]);
     }
 }
