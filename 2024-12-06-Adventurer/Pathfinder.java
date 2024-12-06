@@ -29,7 +29,7 @@ public class Pathfinder extends Adventurer{
 
     @Override
     public void setSpecial(int n) {
-        restoreSpecial(n);
+        this.heal = n;
     }
 
     @Override
@@ -57,9 +57,9 @@ public class Pathfinder extends Adventurer{
     @Override
     public String support() {
         if (this.getSpecial() > 0) {
-            this.setHP(this.getHP() + 15);
+            this.setHP(this.getHP() + 25);
             this.setSpecial(this.getSpecial() - 1);
-            return this.getName() + " heals themselves by 15hp.";
+            return this.getName() + " heals themselves by 25hp.";
         }
 
         return "No healing resources available.";
