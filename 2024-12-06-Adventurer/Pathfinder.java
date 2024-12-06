@@ -66,13 +66,13 @@ public class Pathfinder extends Adventurer{
     }
 
     public String specialAttack(Adventurer other) {
-        if (this.getSpecial() > 1) {
+        if (this.getSpecial() > 2) {
             other.applyDamage(50);
-            this.setSpecial(this.getSpecial() - 2);
+            this.setSpecial(this.getSpecial() - 3);
             return this.getName() + " attacks " + other.getName() + " and inflicts 50hp damage.";
         }
 
-        return "Insufficient " +  this.getSpecialName() + " resources available. 2 needed, " + this.getSpecial() + " available.";
+        return "Insufficient " +  this.getSpecialName() + " resources available. 3 needed, " + this.getSpecial() + " available.";
     }
 
 
